@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h2>vendors:</h2>
+<table>
+<tr>
+<th>id</th>
+<th>code</th>
+<th>name</th>
+<th>type</th>
+</tr>
+
+<tr th:each="vendor:${vendors}">
+<td th:text="${vendor.id}"></td>
+<td th:text="${vendor.code}"></td>
+<td th:text="${vendor.name}"></td>
+<td th:text="${vendor.type}"></td>
+
+<td><a th:href="@{'/deleteVendor?id='+${vendor.id}}">delete</a></td>
+<td><a th:href="@{'showUpdate?id='+${vendor.id}}">edit</a></td>
+</tr>
+</c:forEach>
+</table>
+<a href="showCreate">Add vendor</a>
+</body>
+</html>
